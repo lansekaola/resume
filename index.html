@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>前端工程师冯淑荣</title>
+<!--<link rel="shortcut icon" href="images/small.jpg">-->
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.fn.fullpage({
+		slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+		menu: '#menu',
+		afterRender: function(){
+			$('.screen-main span').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[2] + 'px',
+					top: $arr[3] + 'px'
+				}, 500);
+			});
+			$('.inner a').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[0] + 'px',
+					top: $arr[1] + 'px'
+				}, 500);
+			});
+		},
+		afterLoad: function(anchorLink, index){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeIn(1000);
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeOut(1000);
+			}
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+<ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">TOP</a></li>
+	<li data-menuanchor="page2"><a href="#page2">基本信息</a></li>
+	<li data-menuanchor="page3"><a href="#page3">工作经历</a></li>
+	<li data-menuanchor="page4"><a href="#page4">相关技能</a></li>
+	<li data-menuanchor="page5"><a href="#page5">作品展示</a></li>
+	<li data-menuanchor="page6"><a href="#page6">学习天地</a></li>
+</ul>
+
+<div class="section section1">
+	<div class="screen-main">
+		<span class="shi1"  rel="-501,-455,200,0"><img src="images/ge.png" alt=""></span>
+		<span class="shi2"  rel="1387,-359,300,50"><img src="images/ren.png" alt=""></span>
+		<span class="shi3"  rel="-619,-359,400,100"><img src="images/jian.png" alt=""></span>
+		<span class="shi4"  rel="1295,-259,500,150"><img src="images/li.png" alt=""></span>
+	</div>
+</div>
+
+<div class="section">
+	<div class="science-inner inner">
+		<a class="st1" href="javascript:void(0)"  rel="-435,291,400,20">基本信息</a>
+		<a class="st2" href="javascript:void(0)"  rel="-224,-448,350,150">姓名：</a>
+		<a class="st3"  href="javascript:void(0)"  rel="600,291,450,150">冯淑荣</a>
+		<a class="st4"  href="javascript:void(0)"  rel="-435,291,700,150">性别：</a>
+		<a class="st5"  href="javascript:void(0)"  rel="600,420,750,150">女</a>
+		<a class="st6"  href="javascript:void(0)"  rel="-435,291,350,180">求职意向：</a>
+		<a class="st7"  href="javascript:void(0)"  rel="700,350,450,180">WEB前端开发</a>
+		<a class="st8"  href="javascript:void(0)"  rel="-435,291,700,180">Tel：</a>
+		<a class="st9"  href="javascript:void(0)"  rel="600,450,750,180">15501285094</a>
+		<a class="st10"  href="javascript:void(0)"  rel="-435,291,350,210">学历：</a>
+		<a class="st11"  href="javascript:void(0)"  rel="250,400,450,210">本科</a>
+		<a class="st12"  href="javascript:void(0)"  rel="-435,291,700,210">毕业院校：</a>
+		<a class="st13"  href="javascript:void(0)"  rel="200,600,800,210">青岛大学</a>
+		<a class="st15"  href="javascript:void(0)"  rel="-435,291,350,240">婚姻状况：</a>
+		<a class="st16"  href="javascript:void(0)"  rel="300,500,450,240">已婚已育</a>
+		<a class="st17"  href="javascript:void(0)"  rel="-435,291,700,240">Email：</a>
+		<a class="st18"  href="javascript:void(0)"  rel="700,800,770,240">lansekaola@163.com</a>
+		<a class="st17"  href="javascript:void(0)"  rel="-435,291,350,270">英语水平：</a>
+		<a class="st18"  href="javascript:void(0)"  rel="700,800,450,270">全国英语等级考试PETS</a>
+		<a class="st14"  href="javascript:void(0)"  rel="-435,291,350,370">自我评价：</a>
+		<a class="st19"  href="javascript:void(0)"  rel="700,800,350,400">
+			生活中 : 本人性格开朗，思维活跃;具有良好的沟通能力<br>
+工作中 : 懂得尊重别人劳动成果，懂得珍惜时间，乐于分享;勤奋好学，能很快适应新<br>的环境并快速投入到新的工作中,具备一定的抗压能力。
+		</a>
+		<!--<a class="stimg1" href="javascript:void(0)" rel="0,-350,0,153"><img width="300" height="533" src="images/me.jpg"></a>-->
+	</div>
+</div>
+
+<div class="section">
+	<div class="famous-inner inner">
+		<a class="fa1" href="javascript:void(0)" rel="-300,540,200,50">工作时间：</a>
+		<a class="fa2" href="javascript:void(0)" rel="1370,300,400,50">2012年1月14日--2013年3月1日</a>
+		<a class="fa3" href="javascript:void(0)" rel="-400,540,200,80">工作地点：</a>
+		<a class="fa4" href="javascript:void(0)" rel="1370,200,400,80">永丰余生物科技（昆山）有限公司扬州分公司</a>
+		<a class="fa5" href="javascript:void(0)" rel="-450,-90,200,110">工作职务：</a>
+		<a class="fa6" href="javascript:void(0)" rel="1370,-50,400,110">ERP页面编辑维护</a>
+		<a class="fa7" href="javascript:void(0)" rel="-320,600,200,140">工作内容：</a>
+		<a class="fa8" href="javascript:void(0)" rel="1370,540,400,140">应用HTML、CSS、Js、进行页面编辑和相应模块更新<br>消息更新、实现简单的页面功能更新迭代。</a>
+		<a class="fa9" href="javascript:void(0)" rel="-300,800,200,240">工作时间：</a>
+		<a class="fa10" href="javascript:void(0)" rel="1370,540,400,240">2013年2月16日--2017年5月16日</a>
+		<a class="fa11" href="javascript:void(0)" rel="-420,300,200,270">工作地点：</a>
+		<a class="fa12" href="javascript:void(0)" rel="1370,-20,400,270">涉县三友电脑学校</a>
+		<a class="fa13" href="javascript:void(0)" rel="-300,800,200,300">工作职务：</a>
+		<a class="fa14" href="javascript:void(0)" rel="1370,100,400,300">授课师（网页制作）</a>
+		<a class="fa16" href="javascript:void(0)" rel="-200,540,200,330">工作内容：</a>
+		<a class="fa17" href="javascript:void(0)" rel="1370,200,400,330">应用HTML、CSS和政府相关部门协作进行页面内容更新。</a>
+		<a class="faimg3" href="javascript:void(0)" rel="980,366,290,366"><img width="491" height="328" src="images/xiaohuangren.png"></a>
+	</div>
+</div>
+<div class="section">
+	<div class="social-inner inner">
+		<a class="so1" href="javascript:void(0)" rel="-376,1050,100,180">熟练应用： HTML5、 CSS3 </a>
+		<a class="so2" href="javascript:void(0)" rel="376,1050,100,220">能够编写各种静态页面，熟练手写HTML和CSS代码,熟悉HTML5标准和CSS3新特性。</a>
+		<a class="so3" href="javascript:void(0)" rel="-376,1050,100,250">熟练掌握：JS、DOM、BOM、jQuery、AJAX、Json</a>
+		<a class="so4" href="javascript:void(0)" rel="376,1050,100,290">能够熟练手写原生js代码，能够使用原生js实现各种交互效果， 熟悉面向对象开发，熟悉原型，原型链，闭<br>包等js核心原理， 熟练掌握Ajax技术，能够实现与服务器端的交互熟悉JSONP，实现跨域请求；能够使用<br/>jquery实现多种页面功能。能够熟练处理Json语句类型的数据。</a>
+		<a class="so5" href="javascript:void(0)" rel="-376,1050,100,370">熟练使用：HTML5相关新技术、jQuery类库、AngularJs、BootStrap框架</a>
+		<a class="so6" href="javascript:void(0)" rel="376,1050,100,410">熟悉Http协议、Apache服务器、MySQL数据库、PHP、Node.js等后台开发工具。能够熟练应用AngularJs<br/>技术开发基于MVC模式程序。应用Boot框架技术熟练开发响应式布局的web应用。能够使用Node.js实现基<br/>本的前后端交互。</a>
+		<a class="so7" href="javascript:void(0)" rel="-376,1050,100,490">熟   悉：WebAPP、ReactJs、VueJs、ZeptoJs、移动端、微信开发</a>
+		<a class="so8" href="javascript:void(0)" rel="376,1050,100,530">能够使用Ionic，PhoneGap等完成基本的移动端开发。能够独立使用、手写基本的PHP、SQL语句。可以运用<br/>React实现基本的开发，可以独立应用PS软件完成图片基本处理。</a>
+		<a class="soimg1" href="javascript:void(0)" rel="156,-175,100,0"><img width="270" height="160" src="images/job.jpg"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="net-inner inner">
+		<a class="net1" a href="javascript:void(0)"  rel="-435,291,280,90">企业官网类</a>
+		<a class="net2" a href="javascript:void(0)"  rel="-435,291,280,280">电商类</a>
+		<a class="net3" a href="javascript:void(0)"  rel="-435,291,280,480">游戏类</a>
+		<a class="net4" a href="javascript:void(0)"  rel="900,291,500,60">UC优视官网页面</a>
+		<a class="net5" a href="javascript:void(0)"  rel="800,400,500,100">三友教育应用</a>
+		<a class="net6" a href="javascript:void(0)"  rel="600,100,500,140">INTEL官网(响应式)</a>
+		<a class="net7" a href="http://tianyang.applinzi.com"  rel="700,300,500,180">skyocean官网</a>
+		<a class="net8" a href="http://xiaoguopc.applinzi.com"  rel="800,500,500,260">鲜果到家PC</a>
+		<a class="net9" a href="http://xianguodaojia.applinzi.com"  rel="900,200,500,290">鲜果到家(WebApp)</a>
+		<a class="net10" a href="javascript:void(0)"  rel="800,-291,500,490">HoneyHeart</a>
+		
+		<a class="netimg1" a href="javascript:void(0)" rel="139,-240,139,60"><img width="289" height="178" src="images/qiye.jpg"></a>
+		<a class="netimg2" a href="javascript:void(0)" rel="980,96,138,250"><img width="289" height="178" src="images/dianshang.png"></a>
+		<a class="netimg3" a href="javascript:void(0)" rel="-435,431,139,450"><img width="289" height="178" src="images/game.jpg"></a>
+	</div>
+</div>
+<div class="section">
+	<div class="zanzhu">
+		<h2>知识乐园</h2>
+		<div class="zanzhu-con">
+			<h3>阅读书籍</h3>
+			<a href="javascript:void(0)"><img width="150" height="150" src="images/book1.jpg"></a>
+			<a href="javascript:void(0)"><img width="200" height="200" src="images/jq.jpg"></a>
+			<a href="javascript:void(0)"><img width="150" height="155" src="images/book3.jpg"></a>
+			<a href="javascript:void(0)"><img width="200" height="200" src="images/book4.jpg"></a>
+			<br>
+			<h3>相关网站</h3>
+			<a href="http://www.imooc.com/"><img width="190" height="76" src="images/muke.jpg"></a>
+			<a href="https://github.com/open-source"><img width="190" height="76" src="images/github.jpg"></a>
+			<a href="http://www.csdn.net/"><img width="190" height="76" src="images/csdn.jpg"></a>
+			<a href="https://segmentfault.com/"><img width="190" height="76" src="images/222.jpg"></a>
+			<h3>技术博客</h3>
+			<a href="http://www.cnblogs.com/"><img src="images/boke.jpg" alt=""></a>
+		</div>
+	</div>
+</div>
+</body>
+</html>
